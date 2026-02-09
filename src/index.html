@@ -8,7 +8,228 @@
 </head>
 <body>
     <div id="app">
-        
+        <header class="header">
+            <h1>Тест по HTML/CSS</h1>
+        </header>
+        <main>
+            <div class="question-list">
+                <div class="question">
+                    <h2 class="question__title">Вопрос 1</h2>
+                    <p class="question__text"> Какой HTML-тег определяет гиперссылку на страницу в Интернете, файл, 
+                        адрес электронной почты, определённое место на странице или на что-либо 
+                        ещё, на что может указывать URL-адрес?  </p>
+                    <div class="answer-list">
+                        <label class="answer">
+                            <input type="radio" name="question_1"/>
+                            <span> &lt;link&gt; </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="radio" name="question_1"/>
+                            <span> &lt;a&gt; </span>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="question_1"/>
+                            <span> &lt;href&gt; </span>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="question_1"/>
+                            <span> &lt;url&gt; </span>
+                        </label>
+                    </div>
+                    <label class="button">
+                        <input type="checkbox" id="checked"/>
+                        <span>Проверить</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h2 class="question__title">Вопрос 2</h2>
+                    <p> Выберите все верные утверждения: </p>
+                    <div class="code">
+                        <div><pre>
+&lt;div class="parentclass"&gt;
+    &lt;p class="class1 class2"&gt;
+        Text
+    &lt;/p>
+&lt;/div>
+                        </pre></div>
+                        <div><pre>
+.class1.class1.class1 { color:<span style="color:red">red</span> }
+
+.class1.class2 { color:<span style="color:orange">orange</span> }
+
+.class1 { color:<span style="color:rgb(240, 214, 15)">yellow</span> }
+
+.class1:hover { color:<span style="color:green">green</span> }
+
+.parentclass .class1 { color:<span style="color:blue">blue</span> }
+                        </pre></div>
+                    </div>
+                    <div class="answer-list">
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Text будет красного цвета </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Текст будет зеленого цвета </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Text будет оранжевого цвета </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Текст будет зеленого цвета при наведении </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Text будет желтого цвета </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_2"/>
+                            <span> Text будет синего цвета </span>
+                        </label>
+                    </div>
+                    <label class="button">
+                        <input type="checkbox" id="checked"/>
+                        <span>Проверить</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h2 class="question__title">Вопрос 3</h2>
+                    <p> С какими <code>display</code> у <code>.class2</code> центрирование <code>margin: 0 auto</code> сработает?</p>
+                    <div class="code">
+                        <div><pre>
+&lt;div class="class1"&gt;
+    &lt;div class="class2"&gt;*&lt;/div&gt;
+&lt;/div>
+                        </pre></div>
+                        <div><pre>
+.class1 { 
+    width: 600px; 
+    border: 1px solid #000; 
+}
+
+.class2  { 
+    display: <span style="color:red">?</span>
+    width: 200px; 
+    margin: 0 auto; 
+}
+                        </pre></div>
+                    </div>
+                    <div class="answer-list">
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_3"/>
+                            <span> block </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_3"/>
+                            <span> flex </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_3"/>
+                            <span> inline </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_3"/>
+                            <span> grid </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_3"/>
+                            <span> inline-bock </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_3"/>
+                            <span> Нет подходящего ответа </span>
+                        </label>
+                    </div>
+                    <label class="button">
+                        <input type="checkbox" id="checked"/>
+                        <span>Проверить</span>
+                    </label>
+                </div>
+                <div class="question question--correct">
+                    <h2 class="question__title">Вопрос 4</h2>
+                    <p> Что из перечисленного подходит для использования тега <code>&lt;article&gt;</code> ?</p>
+                    <div class="answer-list">
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Пост в блоге </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Навигация по странице </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Комментарий к видео </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Страница прогноза погоды </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Выделение названия для оформления </span>
+                        </label>
+                        <label class="answer">
+                            <input type="checkbox" name="question_4"/>
+                            <span> Ничего из перечисленного </span>
+                        </label>
+                    </div>
+                    <label class="button">
+                        <input type="checkbox" id="checked"/>
+                        <span>Проверить</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h2 class="question__title">Вопрос 5</h2>
+                    <p> Чему будет равен <code>font-size</code> у <code>class2</code> ? </p>
+                    <div class="code">
+                        <div><pre>
+&lt;div class="class1"&gt;
+    &lt;div class="class2"&gt;*&lt;/div&gt;
+&lt;/div>
+                        </pre></div>
+                        <div><pre>
+.class1 {
+    font-size: 20px;
+}
+
+.class2 {
+    <span style="color: red;">font-size</span>: 1.5em;
+}
+                        </pre></div>
+                    </div>
+                    <div class="answer-list">
+                        <label class="answer">
+                            <input type="radio" name="question_5"/>
+                            <span> 15px </span>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="question_5"/>
+                            <span> 20px </span>
+                        </label>
+                        <label class="answer answer--correct">
+                            <input type="radio" name="question_5"/>
+                            <span> 30px </span>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="question_5"/>
+                            <span> 1.5px </span>
+                        </label>
+                    </div>
+                    <label class="button">
+                        <input type="checkbox" id="checked"/>
+                        <span>Проверить</span>
+                    </label>
+                </div>
+            </div>
+        </main>
+        <a href="" class="retry button button--repeat">Пройти тест ещё раз</a>
+        <footer class="footer">
+            <p></p>
+        </footer>
     </div>
 </body>
 </html>
