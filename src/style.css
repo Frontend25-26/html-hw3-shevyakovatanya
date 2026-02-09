@@ -1,6 +1,280 @@
+:root {
+    /* Фон */
+    --bg-gradient-start: #f8fafc;
+    --bg-gradient-end:   #dfe3f3;
+  
+    /* Текст */
+    --text-heading: #1e293b;
+    --text-primary: #334155;
+    --text-secondary: #64748b;
+  
+    /* Карточки с вопросами */
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+
+    /* Карточки с вариантами ответов */
+    --card-ans-bg: #ffffff;
+    --card-ans-border: #e2e8f0;
+    --card-hover-ans-bg: #eef2ff;
+    --card-hover-ans-border: #c7d2fe;
+    --card-active-ans-bg: #e0e7ff;
+    --card-active-ans-border: #6366f1;
+    --card-checked-ans-bg: #eef2ff;
+    --card-checked-ans-border: #818cf8;
+
+    /* Правильный ответ */
+    --correct-bg: #e8f5f0;
+    --correct-border: #e8f5f0;
+    --correct-glow: #9fd6c7;
+
+    --correct-card-bg: #9fd6c755;
+    --correct-card-border: #9fd6c7;
+
+    --show-correct-card-bg: #e3f3ee;
+    --show-correct-card-border: #5fae99;
+  
+    /* Неправильный ответ */
+    --error-bg: #faeeee;
+    --error-border: #faeeee;
+    --error-glow: #e2b6b6;
+    
+    --error-card-bg: #e2b6b646;
+    --error-card-border: #e2b6b6;
+
+    /* Неполный ответ */
+    --incomplete-bg: #f7f3ea;
+    --incomplete-border: #f7f3ea;
+    --incomplete-glow: #e6d39a;
+  
+    /* Кнопка проверить ответ */
+    --btn-gradient-start: #6366f1;
+    --btn-gradient-end: #4f46e5;
+
+    --btn-hover-start: #4f46e5;
+    --btn-hover-end: #4338ca;
+
+    --btn-active-start: #4338ca;
+    --btn-active-end: #3730a3;
+
+    --btn-text: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
+    color: var(--text-primary);
+    background: linear-gradient( var(--bg-gradient-start), var(--bg-gradient-end));
+    font-family: "Gotham Pro", sans-serif;
+}
 
-    background: #292929;
+#app {
+    margin: 0 200px;
+}
+
+.header {
+    color: var(--text-heading);
+    font-weight: 900; 
+    font-size: 30px;
+    margin: 0;
+}
+
+/* Карточки с вопросами */
+
+.question-list {
+
+}
+
+.question__title {
+    font-weight: 600; 
+    letter-spacing: 0.05em;
+}
+
+.question__title,
+.question__text {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.question {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0px 0px 5px 5px var(--card-shadow);
+    border-radius: 18px;
+    padding: 20px 30px;
+    margin-top: 20px;
+}
+
+/* Кнопка проверить ответ и повторить тест */
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg,var(--btn-gradient-start), var(--btn-gradient-end));
+    color: var(--btn-text);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.button input {
+    display: none;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, var(--btn-hover-start), var(--btn-hover-end));
+    transform: translateY(1px);
+}
+
+.button:active {
+    background: linear-gradient(135deg, var(--btn-active-start), var(--btn-active-end));
+}
+
+.button--repeat {
+    display: block;
+    text-decoration: none;
+    width: 165px;
+    margin: 30px auto 50px;
+}
+
+/* Варианты ответов */
+
+.answer-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.answer {
+    display: inline-block;
+    background-color: var(--card-ans-bg);
+    border: 1px solid var(--card-ans-border);
+    border-radius: 18px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.answer input {
+    display: none;
+}
+
+.answer span {
+    display: block;
+    text-align: center;
+}
+
+.answer:active {
+    background-color: var(--card-active-ans-bg);
+    border-color: var(--card-active-ans-border);
+}
+
+.answer:has(input:checked) {
+    background-color: var(--card-checked-ans-bg);
+    border-color: var(--card-checked-ans-border);
+}
+
+/* ==== Проверка ответов ==== */
+
+.question:has(#checked:checked) .button {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.question:has(#checked:checked) .answer {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Правильный ответ */
+
+.question:has(#checked:checked):has(.answer--correct input:checked) {
+    background-color: var(--correct-bg);
+    border-color: var(--correct-border);
+    box-shadow: 0px 0px 5px 5px var(--correct-glow);
+}
+
+.question:has(#checked:checked) .answer.answer--correct:has(input:checked) {
+    background-color: var(--correct-card-bg);
+    border-color: var(--correct-card-border);
+    border-width: 2px;
+    opacity: 1;
+}
+
+/* Неправильный ответ */
+
+.question:has(#checked:checked):has(.answer--correct input:not(:checked)),
+.question:has(#checked:checked):has(.answer:not(.answer--correct) input:checked) {
+    background-color: var(--error-bg);
+    border-color: var(--error-border);
+    box-shadow: 0px 0px 5px 5px var(--error-glow);
+}
+
+.question:has(#checked:checked) .answer--correct:not(:has(input:checked)) {
+    background-color: var(--show-correct-card-bg);
+    border-color: var(--show-correct-card-border);
+    border-width: 2px;
+    opacity: 1;
+}
+
+.question:has(#checked:checked) .answer:not(.answer--correct):has(input:checked) {
+    background-color: var(--error-card-bg);
+    border-color: var(--error-card-border);
+}
+
+/* Неполный ответ */
+
+.question:has(#checked:checked):has(.answer--correct input:not(:checked)):has(.answer--correct input:checked):not(:has(.answer:not(.answer--correct) input:checked)) {
+    background-color: var(--incomplete-bg);
+    border-color: var(--incomplete-border);
+    box-shadow: 0px 0px 5px 5px var(--incomplete-glow);
+}
+
+/* Остальное */
+
+.code {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.code > div {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.code pre {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.code_q3 { 
+    background-color: pink;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.code_q3 div {
+    background-color: yellow;
+    width: 30px;
+    height: 25px;
+    margin: 0 auto;
+}
+
+code {
+    background-color: rgba(0, 0, 0, 0.06);
+    padding: 5px;
+    border-radius: 5px;
 }
